@@ -2,7 +2,7 @@ import streamlit as st
 
 # --- Page Config ---
 st.set_page_config(
-    page_title="Grade 10 Assessment Hub",
+    page_title="SSC Mathematics",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -23,20 +23,22 @@ st.sidebar.markdown("<br><br><br><br><br><br><br><br><br><br><br>", unsafe_allow
 st.sidebar.link_button("📩 Feedback Form", "https://example.com/feedback-form")
 
 # --- Main Page ---
-st.title("📘 Grade 10 – Assessment Hub")
-st.markdown("Use the sidebar to choose the board, subject, and chapter. Assessments will be shown below.")
+st.title("📘 SSC Mathematics")
+st.markdown("""
+Use the sidebar to choose the board, subject, and branch. Assessment content will appear below based on your selection.
+""")
 
 if subject == "Mathematics" and branch == "Algebra":
     chapter = st.selectbox("Select Chapter", [
-        "Quadratic Equations",
+        "Quadratic Equation",
         "Linear Equations in Two Variables",
         "Arithmetic Progression",
         "Probability",
-        "Statistics and Financial Planning"
+        "Statistics & Financial Planning"
     ])
 
-    if chapter == "Quadratic Equations":
-        st.subheader("📂 Sub-topics in Quadratic Equations")
+    if chapter == "Quadratic Equation":
+        st.subheader("📂 Subtopics in Quadratic Equations")
 
         subtopics = {
             "Roots of a Quadratic Equation": {
@@ -72,6 +74,10 @@ if subject == "Mathematics" and branch == "Algebra":
                     st.link_button("Open Blooket", links["Blooket"])
     else:
         st.info("This chapter doesn’t have sub-topics added yet.")
+
+elif subject == "Mathematics" and branch == "Geometry":
+    st.subheader("📂 Geometry")
+    st.info("🛠️ Geometry content coming soon!")
 
 elif subject != "Mathematics":
     st.info(f"Content for **{subject}** ({board} Board) is coming soon.")
